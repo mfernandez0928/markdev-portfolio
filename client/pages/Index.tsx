@@ -22,35 +22,31 @@ export default function Index() {
 
   const featuredProjects = [
     {
-      title: "E-Commerce Platform",
+      title: "Portfolio Website",
       description:
-        "A full-stack e-commerce solution with real-time inventory management, payment processing, and analytics dashboard.",
-      image:
-        "https://images.unsplash.com/photo-1557821552-17105176677c?w=800&h=600&fit=crop",
-      tags: ["React", "Node.js", "MongoDB", "Stripe"],
-      liveUrl: "#",
-      githubUrl: "#",
+        "Modern, responsive portfolio to showcase my skills and web projects.",
+      image: "/images/projects/portfolio.png", // Replace with your image!
+      tags: ["React", "Tailwind CSS", "Vite"],
+      liveUrl: "https://markdev-portfolio.vercel.app/",
+      githubUrl: "https://github.com/mfernandez0928/markdev-portfolio",
       featured: true,
     },
     {
-      title: "AI Task Manager",
+      title: "Jem Time Attendance App",
       description:
-        "Intelligent task management app with AI-powered task suggestions and priority optimization.",
-      image:
-        "https://images.unsplash.com/photo-1552664730-d307ca884978?w=800&h=600&fit=crop",
-      tags: ["Next.js", "OpenAI", "Supabase", "Tailwind"],
-      liveUrl: "#",
-      githubUrl: "#",
+        "Full-stack app for employee attendance with authentication and admin dashboard.",
+      image: "/images/projects/jem-attendance.png",
+      tags: ["React", "Node.js", "Express", "MySQL"],
+      githubUrl: "https://github.com/mfernandez0928/jem-time-attendance-app",
+      featured: true,
     },
     {
-      title: "Real-time Chat App",
+      title: "Clinic Care System",
       description:
-        "WebSocket-powered chat application with end-to-end encryption and group messaging.",
-      image:
-        "https://images.unsplash.com/photo-1552664730-d307ca884978?w=800&h=600&fit=crop",
-      tags: ["Vue.js", "Socket.io", "Firebase"],
-      liveUrl: "#",
-      githubUrl: "#",
+        "Responsive front-end for managing clinic appointments and services.",
+      image: "/images/projects/clinic-care.png",
+      tags: ["React", "CSS", "Responsive Design"],
+      githubUrl: "https://github.com/mfernandez0928/cliniccaresystem",
     },
   ];
 
@@ -59,19 +55,19 @@ export default function Index() {
     { name: "TypeScript", color: "violet" },
     { name: "Node.js", color: "magenta" },
     { name: "Tailwind CSS", color: "cyan" },
-    { name: "MongoDB", color: "lime" },
-    { name: "PostgreSQL", color: "violet" },
-    { name: "GraphQL", color: "magenta" },
-    { name: "Docker", color: "cyan" },
-    { name: "AWS", color: "violet" },
+    { name: "Express", color: "magenta" },
+    { name: "MySQL", color: "violet" },
+    { name: "Frappe Framework", color: "lime" },
     { name: "Git", color: "magenta" },
+    { name: "Vite", color: "cyan" },
+    { name: "Vercel", color: "violet" },
   ];
 
   const stats = [
-    { label: "Projects Completed", value: "25+" },
-    { label: "Happy Clients", value: "50+" },
-    { label: "Years Experience", value: "5+" },
-    { label: "Open Source Contrib.", value: "100+" },
+    { label: "Projects Completed", value: "6" },
+    { label: "Happy Clients", value: "3+" },
+    { label: "Years Experience", value: "1" },
+    { label: "Open Source Contrib.", value: "3+" },
   ];
 
   return (
@@ -110,36 +106,45 @@ export default function Index() {
           >
             <Sparkles size={16} className="text-neon-cyan" />
             <span className="text-neon-cyan font-semibold">
-              Welcome to My Portfolio
+              Welcome to My Digital World
             </span>
           </div>
 
           {/* Main Heading */}
           <h1
             className={`text-5xl md:text-7xl font-bold mb-6 transition-all duration-1000 ${
-              isLoaded ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
+              isLoaded
+                ? "opacity-100 translate-y-0"
+                : "opacity-0 translate-y-10"
             }`}
           >
-            <span className="block text-foreground mb-2">I Build</span>
-            <span className="bg-gradient-to-r from-neon-cyan via-neon-violet to-neon-magenta bg-clip-text text-transparent animate-neon-flicker">
+            <span className="block text-foreground mb-2">Crafting</span>
+            <span className="bg-gradient-to-r from-blue-400 via-teal-300 to-green-400 bg-clip-text text-transparent animate-pulse">
               Digital Experiences
             </span>
           </h1>
 
           {/* Subtitle */}
-          <p
-            className={`text-xl text-muted-foreground max-w-2xl mx-auto mb-8 transition-all duration-1000 delay-200 ${
-              isLoaded ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
-            }`}
-          >
-            Full-stack developer creating stunning, performant web applications.
-            Specialized in React, TypeScript, and modern web technologies.
+          <p className="text-lg md:text-xl text-slate-400 mb-12 max-w-2xl mx-auto leading-relaxed">
+            I'm an aspiring web developer passionate about building modern,
+            responsive, and user-friendly applications. With a foundation in
+            full-stack development using
+            <span className="text-cyan-400">
+              {" "}
+              React, Node.js, Express, and MySQL
+            </span>
+            , I enjoy turning ideas into real, working solutions. I’m currently
+            focused on growing my skills, collaborating on meaningful projects,
+            and becoming a professional developer who creates seamless digital
+            experiences.
           </p>
 
           {/* CTA Buttons */}
           <div
             className={`flex flex-col sm:flex-row gap-4 justify-center transition-all duration-1000 delay-300 ${
-              isLoaded ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
+              isLoaded
+                ? "opacity-100 translate-y-0"
+                : "opacity-0 translate-y-10"
             }`}
           >
             <AnimatedButton
@@ -163,26 +168,32 @@ export default function Index() {
           {/* Social Links */}
           <div
             className={`flex gap-6 justify-center mt-12 transition-all duration-1000 delay-400 ${
-              isLoaded ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
+              isLoaded
+                ? "opacity-100 translate-y-0"
+                : "opacity-0 translate-y-10"
             }`}
           >
             <a
-              href="#"
+              href="https://github.com/mfernandez0928"
               className="p-3 rounded-lg bg-neon-cyan/10 text-neon-cyan hover:bg-neon-cyan/20 hover:shadow-neon-cyan transition-all duration-300"
+              target="_blank"
+              rel="noopener noreferrer"
             >
-              <Github size={24} />
+                <Github size={24} />
             </a>
             <a
-              href="#"
+              href="https://linkedin.com/in/mark-ronaldo-fernandez"
               className="p-3 rounded-lg bg-neon-magenta/10 text-neon-magenta hover:bg-neon-magenta/20 hover:shadow-neon-magenta transition-all duration-300"
+              target="_blank"
+              rel="noopener noreferrer"
             >
-              <Linkedin size={24} />
+                <Linkedin size={24} />
             </a>
             <a
-              href="mailto:contact@example.com"
+              href="mailto:mrfernandezdev@gmail.com"
               className="p-3 rounded-lg bg-neon-violet/10 text-neon-violet hover:bg-neon-violet/20 hover:shadow-neon-violet transition-all duration-300"
             >
-              <Mail size={24} />
+                <Mail size={24} />
             </a>
           </div>
         </div>
@@ -236,14 +247,16 @@ export default function Index() {
           <div className="text-center mb-16">
             <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-neon-cyan/30 bg-neon-cyan/10 mb-6">
               <Code2 size={16} className="text-neon-cyan" />
-              <span className="text-neon-cyan font-semibold">Featured Work</span>
+              <span className="text-neon-cyan font-semibold">
+                Featured Work
+              </span>
             </div>
             <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-4">
               Recent Projects
             </h2>
             <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
-              Showcasing my best work in web development and design. Each project
-              represents my commitment to quality and innovation.
+              Showcasing my best work in web development and design. Each
+              project represents my commitment to quality and innovation.
             </p>
           </div>
 
@@ -359,7 +372,7 @@ export default function Index() {
                 </div>
               </div>
               <span className="text-xl font-bold bg-gradient-to-r from-neon-cyan to-neon-magenta bg-clip-text text-transparent">
-                Portfolio
+                MrkDev Portfolio
               </span>
             </div>
             <p className="text-muted-foreground text-sm text-center md:text-right">

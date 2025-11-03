@@ -32,12 +32,12 @@ export default function Index() {
       featured: true,
     },
     {
-      title: "Jem Time Attendance App",
+      title: "Funny Calculator",
       description:
-        "Full-stack app for employee attendance with authentication and admin dashboard.",
-      image: "/images/projects/jem-attendance.png",
-      tags: ["React", "Node.js", "Express", "MySQL"],
-      githubUrl: "https://github.com/mfernandez0928/jem-time-attendance-app",
+        "A calculator that sometimes gives intentionally funny answers for entertainment.",
+      image: "/images/projects/funny-calculator.png", // ensure you have this image in your public folder
+      tags: ["HTML5", "CSS3", "JavaScript"],
+      githubUrl: "https://github.com/mfernandez0928/funny-calculator",
       featured: true,
     },
     {

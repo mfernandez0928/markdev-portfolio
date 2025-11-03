@@ -25,7 +25,7 @@ export default function Index() {
       title: "Portfolio Website",
       description:
         "Modern, responsive portfolio to showcase my skills and web projects.",
-      image: "/images/projects/portfolio.png", // Replace with your image!
+      image: "/images/projects/portfolio.png",
       tags: ["React", "Tailwind CSS", "Vite"],
       liveUrl: "https://markdev-portfolio.vercel.app/",
       githubUrl: "https://github.com/mfernandez0928/markdev-portfolio",
@@ -35,7 +35,7 @@ export default function Index() {
       title: "Funny Calculator",
       description:
         "A calculator that sometimes gives intentionally funny answers for entertainment.",
-      image: "/images/projects/funny-calculator.png", // ensure you have this image in your public folder
+      image: "/images/projects/funny-calculator.png",
       tags: ["HTML5", "CSS3", "JavaScript"],
       githubUrl: "https://github.com/mfernandez0928/funny-calculator",
       featured: true,

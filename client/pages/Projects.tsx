@@ -44,15 +44,17 @@ export default function Projects() {
         "Functional calculator with clean UI built with vanilla web technologies.",
       image: "/images/projects/myecalculator.png",
       tags: ["HTML5", "CSS3", "JavaScript"],
+      liveUrl: "https://mfernandez0928.github.io/myecalculator/",
       githubUrl: "https://github.com/mfernandez0928/myecalculator",
     },
     {
-      title: "PHP CRUD Login Form",
+      title: "To-do List App",
       description:
-        "A PHP/MySQL authentication and CRUD app for secure login and data management.",
-      image: "/images/projects/phpcrud-loginform.png",
-      tags: ["PHP", "MySQL", "HTML", "CSS"],
-      githubUrl: "https://github.com/mfernandez0928/phpcrud-loginform",
+        "A to-do list app that uses google sign-in for authentication.",
+      image: "/images/projects/to-do-list.png",
+      tags: ["React", "Vite", "Firebase", "Google Sign-in"],
+      liveUrl: "https://todolist-green-eight.vercel.app/",
+      githubUrl: "https://github.com/mfernandez0928/todolist",
     },
   ];
 

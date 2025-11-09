@@ -29,7 +29,7 @@ export default function Contact() {
       icon: <MapPin size={32} />,
       title: "Location",
       value: "Kotka, Finland",
-      href: "#",
+      href: "https://www.google.com/maps/search/Kotka,+Finland",
       color: "violet",
     },
   ];

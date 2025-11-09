@@ -41,12 +41,13 @@ export default function Index() {
       featured: true,
     },
     {
-      title: "Clinic Care System",
+      title: "To-do List App",
       description:
-        "Responsive front-end for managing clinic appointments and services.",
-      image: "/images/projects/clinic-care.png",
-      tags: ["React", "CSS", "Responsive Design"],
-      githubUrl: "https://github.com/mfernandez0928/cliniccaresystem",
+        "A to-do list app that uses google sign-in for authentication.",
+      image: "/images/projects/to-do-list.png",
+      tags: ["React", "Vite", "Firebase", "Google Sign-in"],
+      liveUrl: "https://todolist-green-eight.vercel.app/",
+      githubUrl: "https://github.com/mfernandez0928/todolist",
     },
   ];
 

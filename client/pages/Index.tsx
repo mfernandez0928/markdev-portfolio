@@ -22,13 +22,13 @@ export default function Index() {
 
   const featuredProjects = [
     {
-      title: "Portfolio Website",
+      title: "Budget Tracker Pro",
       description:
-        "Modern, responsive portfolio to showcase my skills and web projects.",
-      image: "/images/projects/portfolio.png",
-      tags: ["React", "Tailwind CSS", "Vite"],
-      liveUrl: "https://markdev-portfolio.vercel.app/",
-      githubUrl: "https://github.com/mfernandez0928/markdev-portfolio",
+        "Modern, responsive budget tracking app that helps the users to manage their finances.",
+      image: "/images/projects/BudgetTrackerPro.png",
+      tags: ["React with TypeScript", "Tailwind CSS", "Vite"],
+      liveUrl: "https://budget-tracker-pro-one.vercel.app/dashboard",
+      githubUrl: "https://github.com/mfernandez0928/budgetrackerpro.git",
       featured: true,
     },
     {
@@ -43,7 +43,7 @@ export default function Index() {
     {
       title: "To-do List App",
       description:
-        "A to-do list app that uses google sign-in for authentication.",
+        "A simple yet powerful to-do list application built with React and Vite. ",
       image: "/images/projects/to-do-list.png",
       tags: ["React", "Vite", "Firebase", "Google Sign-in"],
       liveUrl: "https://todolist-green-eight.vercel.app/",

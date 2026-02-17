@@ -6,6 +6,23 @@ import { Link } from "react-router-dom";
 export default function Projects() {
   const allProjects = [
     {
+      title: "Elderly Care System",
+      description:
+        "A centralized platform connecting elderly individuals with caregivers and family members. ",
+      image: "/images/projects/elderly-care.png",
+      tags: ["Node.js", "React"],
+      liveUrl: "https://elderly-care-system-zeta.vercel.app/",
+      githubUrl: "https://github.com/mfernandez0928/resort-pos.git",
+    },
+    {
+      title: "Lumina Resort",
+      description: "An AI generated web-app that is functional and responsive.",
+      image: "/images/projects/Lumina-dashboard.png",
+      tags: ["React", "Tailwind CSS", "Vite"],
+      liveUrl: "https://resort-pos.vercel.app/",
+      githubUrl: "https://github.com/mfernandez0928/resort-pos.git",
+    },
+    {
       title: "Portfolio Website",
       description:
         "Modern, responsive portfolio to showcase my skills and web projects.",

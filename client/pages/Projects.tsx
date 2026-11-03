@@ -1,86 +1,34 @@
+import { useState } from "react";
 import { Code2, ArrowRight } from "lucide-react";
+import { AnimatePresence, motion } from "framer-motion";
 import ProjectCard from "@/components/ProjectCard";
 import AnimatedButton from "@/components/AnimatedButton";
-import { Link } from "react-router-dom";
+import Footer from "@/components/Footer";
+import { Reveal, Stagger, StaggerItem } from "@/components/Motion";
+import { projects } from "@/data/projects";
+import { cn } from "@/lib/utils";
+
+const filters = [
+  { label: "All", match: () => true },
+  {
+    label: "Client Work",
+    match: (p: (typeof projects)[number]) => !!p.clientWork,
+  },
+  { label: "Personal", match: (p: (typeof projects)[number]) => !p.clientWork },
+];
 
 export default function Projects() {
-  const allProjects = [
-    {
-      title: "Elderly Care System",
-      description:
-        "A centralized platform connecting elderly individuals with caregivers and family members. ",
-      image: "/images/projects/elderly-care.png",
-      tags: ["Node.js", "React"],
-      liveUrl: "https://elderly-care-system-zeta.vercel.app/",
-      githubUrl: "https://github.com/mfernandez0928/resort-pos.git",
-    },
-    {
-      title: "Lumina Resort",
-      description: "An AI generated web-app that is functional and responsive.",
-      image: "/images/projects/Lumina-dashboard.png",
-      tags: ["React", "Tailwind CSS", "Vite"],
-      liveUrl: "https://resort-pos.vercel.app/",
-      githubUrl: "https://github.com/mfernandez0928/resort-pos.git",
-    },
-    {
-      title: "Portfolio Website",
-      description:
-        "Modern, responsive portfolio to showcase my skills and web projects.",
-      image: "/images/projects/portfolio.png",
-      tags: ["React", "Tailwind CSS", "Vite"],
-      liveUrl: "https://markdev-portfolio.vercel.app/",
-      githubUrl: "https://github.com/mfernandez0928/markdev-portfolio",
-    },
-    {
-      title: "Jem Time Attendance App",
-      description:
-        "Full-stack app for employee attendance with authentication and admin dashboard.",
-      image: "/images/projects/jem-attendance.png",
-      tags: ["React", "Node.js", "Express", "MySQL"],
-      githubUrl: "https://github.com/mfernandez0928/jem-time-attendance-app",
-    },
-    {
-      title: "Clinic Care System",
-      description:
-        "Responsive front-end for managing clinic appointments and services.",
-      image: "/images/projects/clinic-care.png",
-      tags: ["React", "CSS", "Responsive Design"],
-      githubUrl: "https://github.com/mfernandez0928/cliniccaresystem",
-    },
-    {
-      title: "Funny Calculator",
-      description:
-        "A calculator that sometimes gives intentionally funny answers for entertainment.",
-      image: "/images/projects/funny-calculator.png",
-      tags: ["HTML5", "CSS3", "JavaScript"],
-      githubUrl: "https://github.com/mfernandez0928/funny-calculator",
-    },
-    {
-      title: "My E-Calculator",
-      description:
-        "Functional calculator with clean UI built with vanilla web technologies.",
-      image: "/images/projects/myecalculator.png",
-      tags: ["HTML5", "CSS3", "JavaScript"],
-      liveUrl: "https://mfernandez0928.github.io/myecalculator/",
-      githubUrl: "https://github.com/mfernandez0928/myecalculator",
-    },
-    {
-      title: "To-do List App",
-      description:
-        "A to-do list app that uses google sign-in for authentication.",
-      image: "/images/projects/to-do-list.png",
-      tags: ["React", "Vite", "Firebase", "Google Sign-in"],
-      liveUrl: "https://todolist-green-eight.vercel.app/",
-      githubUrl: "https://github.com/mfernandez0928/todolist",
-    },
-  ];
+  const [activeFilter, setActiveFilter] = useState(filters[0].label);
+  const visibleProjects = projects.filter(
+    filters.find((f) => f.label === activeFilter)!.match,
+  );
 
   return (
     <div className="min-h-screen bg-background pt-20">
       {/* Background Elements */}
       <div className="absolute inset-0 overflow-hidden">
         <div className="absolute top-20 right-20 w-96 h-96 bg-neon-cyan/20 rounded-full blur-3xl opacity-50 animate-float"></div>
-        <div className="absolute bottom-20 left-20 w-96 h-96 bg-neon-magenta/20 rounded-full blur-3xl opacity-50 animate-float"></div>
+        <div className="absolute bottom-20 left-20 w-96 h-96 bg-neon-magenta/20 rounded-full blur-3xl opacity-50 animate-float animation-delay-2000"></div>
         <div
           className="absolute inset-0 opacity-5"
           style={{
@@ -93,43 +41,89 @@ export default function Projects() {
 
       {/* Header */}
       <section className="relative z-10 py-20 px-4">
-        <div className="max-w-7xl mx-auto text-center">
-          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-neon-cyan/30 bg-neon-cyan/10 mb-8">
-            <Code2 size={16} className="text-neon-cyan" />
-            <span className="text-neon-cyan font-semibold">All Projects</span>
-          </div>
-          <h1 className="text-5xl md:text-6xl font-bold text-foreground mb-6">
-            Portfolio of Work
-          </h1>
-          <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-            A collection of projects showcasing my expertise in web development,
-            design, and problem-solving. Each project represents dedication to
-            quality and innovation.
-          </p>
-        </div>
+        <Stagger
+          onLoad
+          stagger={0.12}
+          className="max-w-7xl mx-auto text-center"
+        >
+          <StaggerItem>
+            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-neon-cyan/30 bg-neon-cyan/10 mb-8">
+              <Code2 size={16} className="text-neon-cyan" />
+              <span className="text-neon-cyan font-semibold">All Projects</span>
+            </div>
+          </StaggerItem>
+          <StaggerItem>
+            <h1 className="text-5xl md:text-6xl font-bold text-foreground mb-6">
+              Portfolio of Work
+            </h1>
+          </StaggerItem>
+          <StaggerItem>
+            <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
+              A collection of projects showcasing my expertise in web
+              development, design, and problem-solving. Each project represents
+              dedication to quality and innovation.
+            </p>
+          </StaggerItem>
+        </Stagger>
       </section>
 
       {/* Projects Grid */}
-      <section className="relative z-10 py-20 px-4">
+      <section className="relative z-10 pb-20 px-4">
         <div className="max-w-7xl mx-auto">
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {allProjects.map((project, index) => (
-              <div
-                key={project.title}
-                style={{
-                  animation: `fadeIn 0.5s ease-out ${index * 100}ms both`,
-                }}
+          {/* Filters */}
+          <Reveal className="flex flex-wrap justify-center gap-2 mb-12">
+            {filters.map((filter) => (
+              <button
+                key={filter.label}
+                onClick={() => setActiveFilter(filter.label)}
+                className={cn(
+                  "relative px-5 py-2 rounded-full text-sm font-semibold transition-colors duration-300",
+                  activeFilter === filter.label
+                    ? "text-background"
+                    : "text-muted-foreground hover:text-neon-cyan",
+                )}
               >
-                <ProjectCard {...project} />
-              </div>
+                {activeFilter === filter.label && (
+                  <motion.span
+                    layoutId="project-filter"
+                    className="absolute inset-0 rounded-full bg-gradient-to-r from-neon-cyan to-neon-magenta"
+                    transition={{ type: "spring", stiffness: 400, damping: 32 }}
+                  />
+                )}
+                <span className="relative">{filter.label}</span>
+              </button>
             ))}
-          </div>
+          </Reveal>
+
+          <motion.div
+            layout
+            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"
+          >
+            <AnimatePresence mode="popLayout">
+              {visibleProjects.map((project, index) => (
+                <motion.div
+                  key={project.title}
+                  layout
+                  initial={{ opacity: 0, y: 30, scale: 0.96 }}
+                  animate={{ opacity: 1, y: 0, scale: 1 }}
+                  exit={{ opacity: 0, scale: 0.9 }}
+                  transition={{
+                    duration: 0.5,
+                    ease: [0.22, 1, 0.36, 1],
+                    delay: Math.min(index, 6) * 0.06,
+                  }}
+                >
+                  <ProjectCard {...project} />
+                </motion.div>
+              ))}
+            </AnimatePresence>
+          </motion.div>
         </div>
       </section>
 
       {/* CTA Section */}
       <section className="relative z-10 py-20 px-4">
-        <div className="max-w-4xl mx-auto text-center">
+        <Reveal className="max-w-4xl mx-auto text-center">
           <div className="relative">
             <div className="absolute inset-0 bg-gradient-to-r from-neon-cyan/20 to-neon-magenta/20 rounded-2xl blur-xl"></div>
             <div className="relative bg-gradient-to-br from-background to-background/50 rounded-2xl border border-neon-cyan/30 p-12 md:p-16">
@@ -150,34 +144,10 @@ export default function Projects() {
               </AnimatedButton>
             </div>
           </div>
-        </div>
+        </Reveal>
       </section>
 
-      {/* Footer */}
-      <footer className="relative z-10 border-t border-neon-cyan/20 py-12 px-4">
-        <div className="max-w-7xl mx-auto">
-          <div className="flex flex-col md:flex-row justify-between items-center gap-8">
-            <Link
-              to="/"
-              className="flex items-center gap-2 group cursor-pointer"
-            >
-              <div className="relative">
-                <div className="absolute inset-0 bg-gradient-to-r from-neon-cyan to-neon-magenta rounded-lg blur opacity-75 group-hover:opacity-100 transition duration-300"></div>
-                <div className="relative bg-background px-2 py-1 rounded-lg">
-                  <Code2 className="w-5 h-5 text-neon-cyan" />
-                </div>
-              </div>
-              <span className="text-xl font-bold bg-gradient-to-r from-neon-cyan to-neon-magenta bg-clip-text text-transparent">
-                MarkDev Portfolio
-              </span>
-            </Link>
-            <p className="text-muted-foreground text-sm text-center md:text-right">
-              © {new Date().getFullYear()} All rights reserved. Crafted with
-              creativity and passion.
-            </p>
-          </div>
-        </div>
-      </footer>
+      <Footer />
     </div>
   );
 }

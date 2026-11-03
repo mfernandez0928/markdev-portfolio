@@ -7,7 +7,9 @@ import {
   Linkedin,
 } from "lucide-react";
 import AnimatedButton from "@/components/AnimatedButton";
-import { Link } from "react-router-dom";
+import { motion } from "framer-motion";
+import Footer from "@/components/Footer";
+import { Reveal, Stagger, StaggerItem } from "@/components/Motion";
 
 export default function Contact() {
   const contactMethods = [
@@ -60,86 +62,104 @@ export default function Contact() {
 
       {/* Header */}
       <section className="relative z-10 py-20 px-4">
-        <div className="max-w-7xl mx-auto text-center">
-          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-neon-violet/30 bg-neon-violet/10 mb-8">
-            <Mail size={16} className="text-neon-violet" />
-            <span className="text-neon-violet font-semibold">Get In Touch</span>
-          </div>
-          <h1 className="text-5xl md:text-6xl font-bold text-foreground mb-6">
-            Let's Connect
-          </h1>
-          <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-            Whether you have a project in mind, a question, or just want to say
-            hello, I'd love to hear from you. Reach out using any of the methods
-            below.
-          </p>
-        </div>
+        <Stagger
+          onLoad
+          stagger={0.12}
+          className="max-w-7xl mx-auto text-center"
+        >
+          <StaggerItem>
+            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-neon-violet/30 bg-neon-violet/10 mb-8">
+              <Mail size={16} className="text-neon-violet" />
+              <span className="text-neon-violet font-semibold">
+                Get In Touch
+              </span>
+            </div>
+          </StaggerItem>
+          <StaggerItem>
+            <h1 className="text-5xl md:text-6xl font-bold text-foreground mb-6">
+              Let's Connect
+            </h1>
+          </StaggerItem>
+          <StaggerItem>
+            <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
+              Whether you have a project in mind, a question, or just want to
+              say hello, I'd love to hear from you. Reach out using any of the
+              methods below.
+            </p>
+          </StaggerItem>
+        </Stagger>
       </section>
 
       {/* Contact Methods */}
       <section className="relative z-10 py-20 px-4">
         <div className="max-w-7xl mx-auto">
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {contactMethods.map((method, index) => (
-              <a
-                key={method.title}
-                href={method.href}
-                className={`group rounded-xl border p-8 transition-all duration-300 cursor-pointer text-center ${
-                  colorClasses[method.color as keyof typeof colorClasses]
-                }`}
-                style={{
-                  animation: `fadeIn 0.5s ease-out ${index * 100}ms both`,
-                }}
-              >
-                <div className="mb-4 flex justify-center group-hover:scale-110 transition-transform duration-300">
-                  {method.icon}
-                </div>
-                <h3 className="text-xl font-bold text-foreground mb-2">
-                  {method.title}
-                </h3>
-                <p className="text-foreground font-semibold">{method.value}</p>
-              </a>
+          <Stagger
+            stagger={0.12}
+            className="grid grid-cols-1 md:grid-cols-3 gap-8"
+          >
+            {contactMethods.map((method) => (
+              <StaggerItem key={method.title}>
+                <motion.a
+                  href={method.href}
+                  target={method.href.startsWith("http") ? "_blank" : undefined}
+                  rel="noopener noreferrer"
+                  whileHover={{ y: -6 }}
+                  className={`group block h-full rounded-xl border p-8 transition-colors duration-300 cursor-pointer text-center ${
+                    colorClasses[method.color as keyof typeof colorClasses]
+                  }`}
+                >
+                  <div className="mb-4 flex justify-center group-hover:scale-110 transition-transform duration-300">
+                    {method.icon}
+                  </div>
+                  <h3 className="text-xl font-bold text-foreground mb-2">
+                    {method.title}
+                  </h3>
+                  <p className="text-foreground font-semibold">
+                    {method.value}
+                  </p>
+                </motion.a>
+              </StaggerItem>
             ))}
-          </div>
+          </Stagger>
         </div>
       </section>
 
       {/* Social Links Section */}
       <section className="relative z-10 py-20 px-4">
-        <div className="max-w-4xl mx-auto text-center">
+        <Reveal className="max-w-4xl mx-auto text-center">
           <h2 className="text-3xl font-bold text-foreground mb-8">
             Find Me On
           </h2>
           <div className="flex gap-6 justify-center">
-            <a
+            <motion.a
               href="https://github.com/mfernandez0928"
-              className="p-4 rounded-lg bg-neon-cyan/10 text-neon-cyan hover:bg-neon-cyan/20 hover:shadow-neon-cyan transition-all duration-300"
-            >
-              <Github size={32} />
-            </a>
-            <a
-              href="https://www.linkedin.com/in/mark-ronaldo-fernandez-a3aab3115/"
-              className="p-4 rounded-lg bg-neon-magenta/10 text-neon-magenta hover:bg-neon-magenta/20 hover:shadow-neon-magenta transition-all duration-300"
-            >
-              <Linkedin size={32} />
-            </a>
-            <a
-              href="https://twitter.com"
+              aria-label="GitHub"
               target="_blank"
               rel="noopener noreferrer"
-              className="p-4 rounded-lg bg-neon-violet/10 text-neon-violet hover:bg-neon-violet/20 hover:shadow-neon-violet transition-all duration-300"
+              whileHover={{ y: -4, scale: 1.1 }}
+              whileTap={{ scale: 0.95 }}
+              className="p-4 rounded-lg bg-neon-cyan/10 text-neon-cyan hover:bg-neon-cyan/20 hover:shadow-neon-cyan transition-colors duration-300"
             >
-              <svg className="w-8 h-8" fill="currentColor" viewBox="0 0 24 24">
-                <path d="M23 3a10.9 10.9 0 01-3.14 1.53 4.48 4.48 0 00-7.86 3v1A10.66 10.66 0 013 4s-4 9 5 13a11.64 11.64 0 01-7 2s9 5 20 5a9.5 9.5 0 00-9-5.5c4.75 2.25 9-1.67 9-5s-3.5-4-7-4" />
-              </svg>
-            </a>
+              <Github size={32} />
+            </motion.a>
+            <motion.a
+              href="https://www.linkedin.com/in/mark-ronaldo-fernandez-a3aab3115/"
+              aria-label="LinkedIn"
+              target="_blank"
+              rel="noopener noreferrer"
+              whileHover={{ y: -4, scale: 1.1 }}
+              whileTap={{ scale: 0.95 }}
+              className="p-4 rounded-lg bg-neon-magenta/10 text-neon-magenta hover:bg-neon-magenta/20 hover:shadow-neon-magenta transition-colors duration-300"
+            >
+              <Linkedin size={32} />
+            </motion.a>
           </div>
-        </div>
+        </Reveal>
       </section>
 
       {/* CTA Section */}
       <section className="relative z-10 py-20 px-4">
-        <div className="max-w-4xl mx-auto text-center">
+        <Reveal className="max-w-4xl mx-auto text-center">
           <div className="relative">
             <div className="absolute inset-0 bg-gradient-to-r from-neon-violet/20 to-neon-cyan/20 rounded-2xl blur-xl"></div>
             <div className="relative bg-gradient-to-br from-background to-background/50 rounded-2xl border border-neon-violet/30 p-12 md:p-16">
@@ -160,34 +180,10 @@ export default function Contact() {
               </AnimatedButton>
             </div>
           </div>
-        </div>
+        </Reveal>
       </section>
 
-      {/* Footer */}
-      <footer className="relative z-10 border-t border-neon-cyan/20 py-12 px-4">
-        <div className="max-w-7xl mx-auto">
-          <div className="flex flex-col md:flex-row justify-between items-center gap-8">
-            <Link
-              to="/"
-              className="flex items-center gap-2 group cursor-pointer"
-            >
-              <div className="relative">
-                <div className="absolute inset-0 bg-gradient-to-r from-neon-cyan to-neon-magenta rounded-lg blur opacity-75 group-hover:opacity-100 transition duration-300"></div>
-                <div className="relative bg-background px-2 py-1 rounded-lg">
-                  <Mail className="w-5 h-5 text-neon-cyan" />
-                </div>
-              </div>
-              <span className="text-xl font-bold bg-gradient-to-r from-neon-cyan to-neon-magenta bg-clip-text text-transparent">
-                MarkDev Portfolio
-              </span>
-            </Link>
-            <p className="text-muted-foreground text-sm text-center md:text-right">
-              © {new Date().getFullYear()} All rights reserved. Crafted with
-              creativity and passion.
-            </p>
-          </div>
-        </div>
-      </footer>
+      <Footer />
     </div>
   );
 }

@@ -17,7 +17,6 @@ yarn-error.log*
 *.swp
 *.swo
 *~
-.cursor
 coverage
 .nyc_output
 .eslintcache

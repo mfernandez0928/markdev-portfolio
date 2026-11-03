@@ -44,12 +44,16 @@ export default function AnimatedButton({
     baseClasses,
     variantClasses[variant],
     sizeClasses[size],
-    className
+    className,
   );
 
   const content = (
     <>
-      {icon && <span className="group-hover:scale-110 transition-transform duration-300">{icon}</span>}
+      {icon && (
+        <span className="group-hover:scale-110 transition-transform duration-300">
+          {icon}
+        </span>
+      )}
       {children}
       <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white to-transparent opacity-0 group-hover:opacity-20 transition-opacity duration-300 -skew-x-12"></div>
     </>

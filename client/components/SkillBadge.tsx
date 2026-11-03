@@ -27,10 +27,14 @@ export default function SkillBadge({
       className={cn(
         "px-4 py-2 rounded-lg border backdrop-blur-sm transition-all duration-300 cursor-pointer group inline-flex items-center gap-2 font-medium text-sm hover:shadow-lg",
         colorClasses[color],
-        className
+        className,
       )}
     >
-      {icon && <span className="group-hover:scale-110 transition-transform duration-300">{icon}</span>}
+      {icon && (
+        <span className="group-hover:scale-110 transition-transform duration-300">
+          {icon}
+        </span>
+      )}
       {name}
     </div>
   );

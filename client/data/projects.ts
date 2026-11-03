@@ -76,7 +76,7 @@ export const projects: Project[] = [
       "Modern, responsive budget tracking app that helps users manage their finances.",
     image: "/images/projects/BudgetTrackerPro.png",
     tags: ["React", "TypeScript", "Tailwind CSS", "Vite"],
-    liveUrl: "https://budget-tracker-pro-one.vercel.app/dashboard",
+    liveUrl: "https://btpro1.vercel.app",
     githubUrl: "https://github.com/mfernandez0928/budgetrackerpro",
   },
   {
